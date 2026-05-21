@@ -235,232 +235,64 @@ select.field{font-style:normal;font-size:16px;font-family:'Jost',sans-serif;font
      SCREEN 1: WELCOME
 ═══════════════════════════════════ -->
 <div id="screen-welcome" class="screen active">
+  <div style="position:relative;z-index:1;width:100%;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem 5rem;background:#e8dfd0;">
 
-  <!-- Rich paper background with grain, fronds, and depth -->
-  <div class="w-paper-bg">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:0.22em;color:#7a6848;margin-bottom:2.25rem;font-weight:300;">ground <em style="font-style:italic;">me</em></p>
 
-    <!-- Paper grain texture via SVG filter -->
-    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <filter id="grain" x="0%" y="0%" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" seed="8" stitchTiles="stitch" result="noise"/>
-          <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
-          <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blended"/>
-          <feComponentTransfer in="blended">
-            <feFuncR type="linear" slope="0.96" intercept="0.02"/>
-            <feFuncG type="linear" slope="0.95" intercept="0.02"/>
-            <feFuncB type="linear" slope="0.93" intercept="0.01"/>
-          </feComponentTransfer>
-        </filter>
-      </defs>
-      <rect width="100%" height="100%" fill="#ddd4c0" filter="url(#grain)" opacity="0.55"/>
-    </svg>
-
-    <!-- Warm vignette overlay -->
-    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <radialGradient id="vign" cx="50%" cy="45%" r="75%" gradientUnits="userSpaceOnUse" gradientTransform="scale(1.4 1)">
-          <stop offset="0%" stop-color="#f0e8d8" stop-opacity="0.0"/>
-          <stop offset="60%" stop-color="#c8bba0" stop-opacity="0.18"/>
-          <stop offset="100%" stop-color="#a89880" stop-opacity="0.55"/>
-        </radialGradient>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#vign)"/>
-    </svg>
-
-    <!-- Top-left palm frond shadow -->
-    <svg style="position:absolute;top:-2%;left:-4%;width:42%;opacity:0.28;pointer-events:none;" viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
-      <g fill="#8a7a60" opacity="0.9">
-        <!-- main frond stem -->
-        <path d="M20 0 C40 80 80 150 140 220 C180 270 220 310 260 380" stroke="#8a7a60" stroke-width="3" fill="none" opacity="0.6"/>
-        <!-- leaflets left -->
-        <path d="M55 82 C20 55 -10 30 5 8 C25 30 45 62 55 82Z" opacity="0.55"/>
-        <path d="M72 105 C35 82 4 60 18 36 C40 58 62 86 72 105Z" opacity="0.5"/>
-        <path d="M90 130 C52 108 20 88 35 62 C56 85 80 112 90 130Z" opacity="0.48"/>
-        <path d="M108 155 C70 135 38 116 54 88 C74 112 98 140 108 155Z" opacity="0.45"/>
-        <path d="M126 180 C88 162 56 144 72 115 C93 140 118 168 126 180Z" opacity="0.42"/>
-        <!-- leaflets right -->
-        <path d="M62 90 C95 62 128 38 118 12 C96 35 72 68 62 90Z" opacity="0.5"/>
-        <path d="M80 115 C114 90 148 66 140 40 C116 62 90 95 80 115Z" opacity="0.46"/>
-        <path d="M98 140 C132 118 165 96 158 68 C135 90 108 120 98 140Z" opacity="0.42"/>
-        <path d="M116 166 C150 146 182 124 176 96 C152 118 125 148 116 166Z" opacity="0.38"/>
+    <svg width="56" height="46" viewBox="0 0 56 46" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 1.5rem;">
+      <g stroke="#b09060" stroke-linecap="round" opacity="0.85">
+        <line x1="28" y1="1" x2="28" y2="7" stroke-width="1"/>
+        <line x1="41.5" y1="4.5" x2="38.2" y2="9.8" stroke-width="1"/>
+        <line x1="51" y1="14" x2="45.5" y2="17.2" stroke-width="1"/>
+        <line x1="14.5" y1="4.5" x2="17.8" y2="9.8" stroke-width="1"/>
+        <line x1="5" y1="14" x2="10.5" y2="17.2" stroke-width="1"/>
+        <line x1="55" y1="26" x2="49" y2="26" stroke-width="1"/>
+        <line x1="1" y1="26" x2="7" y2="26" stroke-width="1"/>
       </g>
+      <path d="M9 28 C9 18.6 17.6 11 28 11 C38.4 11 47 18.6 47 28" stroke="#b09060" stroke-width="1.1" fill="none" opacity="0.85"/>
+      <line x1="28" y1="28" x2="28" y2="44" stroke="#b09060" stroke-width="0.9" opacity="0.55"/>
+      <circle cx="28" cy="45" r="1.8" fill="#b09060" opacity="0.55"/>
     </svg>
 
-    <!-- Top-right palm frond shadow -->
-    <svg style="position:absolute;top:-3%;right:-5%;width:44%;opacity:0.24;pointer-events:none;transform:scaleX(-1);" viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
-      <g fill="#8a7a60" opacity="0.9">
-        <path d="M20 0 C40 80 80 150 140 220 C180 270 220 310 260 380" stroke="#8a7a60" stroke-width="3" fill="none" opacity="0.5"/>
-        <path d="M55 82 C20 55 -10 30 5 8 C25 30 45 62 55 82Z" opacity="0.5"/>
-        <path d="M72 105 C35 82 4 60 18 36 C40 58 62 86 72 105Z" opacity="0.46"/>
-        <path d="M90 130 C52 108 20 88 35 62 C56 85 80 112 90 130Z" opacity="0.42"/>
-        <path d="M108 155 C70 135 38 116 54 88 C74 112 98 140 108 155Z" opacity="0.38"/>
-        <path d="M62 90 C95 62 128 38 118 12 C96 35 72 68 62 90Z" opacity="0.46"/>
-        <path d="M80 115 C114 90 148 66 140 40 C116 62 90 95 80 115Z" opacity="0.42"/>
-        <path d="M98 140 C132 118 165 96 158 68 C135 90 108 120 98 140Z" opacity="0.38"/>
-      </g>
-    </svg>
-
-    <!-- Bottom-right frond hint -->
-    <svg style="position:absolute;bottom:-5%;right:-3%;width:35%;opacity:0.18;pointer-events:none;transform:rotate(160deg);" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-      <g fill="#8a7a60">
-        <path d="M20 0 C40 60 75 120 130 180" stroke="#8a7a60" stroke-width="2.5" fill="none" opacity="0.5"/>
-        <path d="M45 58 C18 40 -5 20 8 4 C22 22 38 46 45 58Z" opacity="0.5"/>
-        <path d="M60 80 C32 64 8 44 22 26 C38 44 56 70 60 80Z" opacity="0.44"/>
-        <path d="M50 65 C76 46 102 28 94 8 C74 26 54 54 50 65Z" opacity="0.44"/>
-        <path d="M66 88 C92 70 118 54 112 32 C90 50 68 78 66 88Z" opacity="0.38"/>
-      </g>
-    </svg>
-
-  </div>
-
-  <!-- Vine shadows at edges - left -->
-  <svg style="position:absolute;top:0;left:0;height:100%;width:130px;pointer-events:none;z-index:0;" viewBox="0 0 130 900" preserveAspectRatio="xMinYMin meet" xmlns="http://www.w3.org/2000/svg">
-    <g opacity="0.22" fill="#7a6848">
-      <path d="M18 0 C22 55 12 110 20 175 C26 230 15 295 24 365 C30 420 18 488 26 560 C32 618 20 690 28 780 C32 830 24 870 20 900"/>
-      <path d="M18 0 C22 55 12 110 20 175 C26 230 15 295 24 365 C30 420 18 488 26 560 C32 618 20 690 28 780" fill="none" stroke="#7a6848" stroke-width="1.2" stroke-linecap="round"/>
-    </g>
-    <g opacity="0.19" fill="#6b5c38">
-      <path d="M20 48 C4 34 -8 14 4 2 C8 -2 14 2 17 13 C18 27 19 39 20 48Z"/>
-      <path d="M20 48 C34 32 42 12 30 2 C26 -2 20 3 19 14 C18 28 19 40 20 48Z"/>
-      <path d="M21 118 C3 102 -10 80 4 66 C8 62 15 67 18 79 C20 93 21 107 21 118Z"/>
-      <path d="M21 118 C37 100 46 78 32 66 C28 62 22 67 21 79 C20 93 21 107 21 118Z"/>
-      <path d="M22 192 C5 176 -7 153 7 140 C12 136 18 141 20 153 C22 167 22 181 22 192Z"/>
-      <path d="M22 192 C38 174 46 151 32 140 C28 136 22 141 21 153 C20 167 21 181 22 192Z"/>
-      <path d="M23 268 C7 251 -4 228 10 215 C15 211 21 216 23 228 C24 242 24 256 23 268Z"/>
-      <path d="M23 268 C38 250 46 227 32 215 C28 211 22 216 22 228 C21 242 22 256 23 268Z"/>
-      <path d="M24 345 C9 327 -2 304 13 291 C18 287 24 292 25 305 C26 319 25 333 24 345Z"/>
-      <path d="M24 345 C38 326 46 303 31 291 C27 287 22 293 22 305 C21 319 23 333 24 345Z"/>
-      <path d="M25 422 C11 404 1 380 16 367 C21 363 27 368 28 381 C28 395 27 409 25 422Z"/>
-      <path d="M25 422 C38 403 45 379 30 367 C26 363 21 369 21 381 C20 395 22 409 25 422Z"/>
-      <path d="M25 498 C12 480 3 456 18 443 C23 439 29 444 29 457 C30 471 28 485 25 498Z"/>
-      <path d="M25 498 C37 479 44 455 29 443 C25 439 20 445 20 457 C19 471 22 485 25 498Z"/>
-      <path d="M26 575 C13 557 5 532 20 519 C25 515 31 520 31 533 C32 547 29 562 26 575Z"/>
-      <path d="M26 575 C38 556 44 531 29 519 C25 515 20 521 20 533 C19 547 22 562 26 575Z"/>
-    </g>
-    <g opacity="0.08" fill="#c5a87e">
-      <path d="M14 652 C2 636 -5 614 9 603 C13 600 18 604 18 615 C19 627 17 640 14 652Z"/>
-      <path d="M14 652 C24 634 29 612 15 603 C11 600 7 605 7 615 C6 628 9 641 14 652Z"/>
-    </g>
-  </svg>
-
-  <!-- Vine shadows at edges - right -->
-  <svg style="position:absolute;top:0;right:0;height:100%;width:130px;pointer-events:none;z-index:0;" viewBox="0 0 130 900" preserveAspectRatio="xMaxYMin meet" xmlns="http://www.w3.org/2000/svg">
-    <g opacity="0.22" fill="none">
-      <path d="M110 0 C106 55 116 110 108 175 C102 230 113 295 104 365 C98 420 110 488 102 560 C96 618 108 690 100 780 C96 830 104 870 108 900" stroke="#7a6848" stroke-width="1.2" stroke-linecap="round"/>
-    </g>
-    <g opacity="0.19" fill="#6b5c38">
-      <path d="M108 48 C124 34 136 14 124 2 C120 -2 114 2 111 13 C110 27 109 39 108 48Z"/>
-      <path d="M108 48 C94 32 86 12 98 2 C102 -2 108 3 109 14 C110 28 109 40 108 48Z"/>
-      <path d="M107 118 C125 102 138 80 124 66 C120 62 113 67 110 79 C108 93 107 107 107 118Z"/>
-      <path d="M107 118 C91 100 82 78 96 66 C100 62 106 67 107 79 C108 93 107 107 107 118Z"/>
-      <path d="M106 192 C123 176 135 153 121 140 C116 136 110 141 108 153 C106 167 106 181 106 192Z"/>
-      <path d="M106 192 C90 174 82 151 96 140 C100 136 106 141 107 153 C108 167 107 181 106 192Z"/>
-      <path d="M105 268 C121 251 132 228 118 215 C113 211 107 216 105 228 C104 242 104 256 105 268Z"/>
-      <path d="M105 268 C90 250 82 227 96 215 C100 211 106 216 106 228 C107 242 106 256 105 268Z"/>
-      <path d="M104 345 C119 327 130 304 115 291 C110 287 104 292 103 305 C102 319 103 333 104 345Z"/>
-      <path d="M104 345 C90 326 82 303 97 291 C101 287 106 293 106 305 C107 319 105 333 104 345Z"/>
-      <path d="M103 422 C117 404 127 380 112 367 C107 363 101 368 100 381 C100 395 101 409 103 422Z"/>
-      <path d="M103 422 C90 403 83 379 98 367 C102 363 107 369 107 381 C108 395 106 409 103 422Z"/>
-      <path d="M103 498 C116 480 125 456 110 443 C105 439 99 444 99 457 C98 471 100 485 103 498Z"/>
-      <path d="M103 498 C91 479 84 455 99 443 C103 439 108 445 108 457 C109 471 106 485 103 498Z"/>
-    </g>
-  </svg>
-
-  <div class="w-inner">
-
-    <!-- Logo -->
-    <p class="w-logo">ground <em>me</em></p>
-
-    <!-- Sun rising icon -->
-    <div class="w-sun-wrap">
-      <svg width="56" height="46" viewBox="0 0 56 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#b09060" stroke-linecap="round" opacity="0.85">
-          <line x1="28" y1="1" x2="28" y2="7" stroke-width="1"/>
-          <line x1="41.5" y1="4.5" x2="38.2" y2="9.8" stroke-width="1"/>
-          <line x1="51" y1="14" x2="45.5" y2="17.2" stroke-width="1"/>
-          <line x1="14.5" y1="4.5" x2="17.8" y2="9.8" stroke-width="1"/>
-          <line x1="5" y1="14" x2="10.5" y2="17.2" stroke-width="1"/>
-          <line x1="55" y1="26" x2="49" y2="26" stroke-width="1"/>
-          <line x1="1" y1="26" x2="7" y2="26" stroke-width="1"/>
-          <line x1="47" y1="35" x2="42.5" y2="31.5" stroke-width="1"/>
-          <line x1="9" y1="35" x2="13.5" y2="31.5" stroke-width="1"/>
-        </g>
-        <path d="M9 28 C9 18.6 17.6 11 28 11 C38.4 11 47 18.6 47 28" stroke="#b09060" stroke-width="1.1" fill="none" opacity="0.85"/>
-        <line x1="28" y1="28" x2="28" y2="44" stroke="#b09060" stroke-width="0.9" opacity="0.55"/>
-        <circle cx="28" cy="45" r="1.8" fill="#b09060" opacity="0.55"/>
-      </svg>
+    <div style="margin-bottom:0.15rem;line-height:1.05;">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:82px;font-weight:300;color:#1e1a10;line-height:1;display:inline;">You </span><span style="font-family:'Dancing Script',cursive;font-size:88px;font-weight:600;color:#6b2d1f;line-height:1;display:inline;">found it.</span>
     </div>
 
-    <!-- Main headline -->
-    <div class="w-headline-row">
-      <span class="w-headline-you">You </span><span class="w-headline-script">found it.</span>
-    </div>
-
-    <!-- Diamond divider -->
-    <div class="w-diamond-row">
-      <div class="w-hairline"></div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:1.5rem auto;">
+      <div style="width:72px;height:0.5px;background:#b09a7a;opacity:0.7;"></div>
       <svg width="9" height="9" viewBox="0 0 9 9"><polygon points="4.5,0 9,4.5 4.5,9 0,4.5" fill="#b09060" opacity="0.65"/></svg>
-      <div class="w-hairline"></div>
+      <div style="width:72px;height:0.5px;background:#b09a7a;opacity:0.7;"></div>
     </div>
 
-    <!-- Subheadline -->
-    <p class="w-subhead">The map that makes sense<br>of <em>all of you.</em></p>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1e1a10;line-height:1.35;margin-bottom:0;">The map that makes sense<br>of <em style="font-style:italic;">all of you.</em></p>
 
-    <!-- Botanical emblem -->
-    <div class="w-emblem-row">
+    <div style="margin:1.75rem auto;display:flex;justify-content:center;">
       <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="29" cy="29" r="26" stroke="#b09060" stroke-width="0.85" opacity="0.55"/>
         <line x1="29" y1="43" x2="29" y2="23" stroke="#6b5c38" stroke-width="1" opacity="0.65"/>
         <path d="M29 34 C24 29 17 27 16 21 C22 20 29 27 29 34Z" fill="#6b5c38" opacity="0.5"/>
         <path d="M29 34 C34 29 41 27 42 21 C36 20 29 27 29 34Z" fill="#6b5c38" opacity="0.5"/>
         <path d="M29 23 C26 17 26 11 29 9 C32 11 32 17 29 23Z" fill="#6b5c38" opacity="0.6"/>
-        <path d="M29 43 C27 46 24 47 22 46" stroke="#6b5c38" stroke-width="0.8" fill="none" opacity="0.38"/>
-        <path d="M29 43 C31 46 34 47 36 46" stroke="#6b5c38" stroke-width="0.8" fill="none" opacity="0.38"/>
-        <path d="M29 43 C29 45 29 47 29 49" stroke="#6b5c38" stroke-width="0.7" fill="none" opacity="0.3"/>
       </svg>
     </div>
 
-    <!-- Body copy -->
-    <div class="w-body-block">
-      <p class="w-body-text">Make a cuppa. Find a quiet space.<br>Let the noise fall away for a moment.</p>
-    </div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:16.5px;font-weight:300;color:#5a4e3c;line-height:1.85;margin-bottom:0;">Make a cuppa. Find a quiet space.<br>Let the noise fall away for a moment.</p>
+    <div style="width:130px;height:0.5px;background:#c5a87e;margin:1.25rem auto;opacity:0.5;"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:16.5px;font-weight:300;color:#5a4e3c;line-height:1.85;margin-bottom:0;">This is your time to be witnessed fully —<br>not filtered, minimised, or misunderstood.</p>
+    <div style="width:130px;height:0.5px;background:#c5a87e;margin:1.25rem auto;opacity:0.5;"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:#6b5c44;line-height:1.85;margin-bottom:0;">What you're about to receive isn't a quiz result<br>or a birth chart summary.</p>
+    <br>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:#6b5c44;line-height:1.85;margin-bottom:0;">It's your Nervous System Fingerprint —<br>nine chapters that decode exactly how you're wired.</p>
+    <br>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:#6b5c44;line-height:1.85;margin-bottom:0;">How you regulate. How you rest. How you love.<br>How you thrive.</p>
+    <br>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:#6b5c44;line-height:1.85;margin-bottom:2.75rem;">Specific to you, and no one else.</p>
 
-    <div class="w-thin-rule"></div>
-
-    <div class="w-body-block">
-      <p class="w-body-text">This is your time to be witnessed fully —<br>not filtered, minimised, or misunderstood.</p>
-    </div>
-
-    <div class="w-thin-rule"></div>
-
-    <!-- Italic note -->
-    <div class="w-note-block">
-      <p class="w-note-text">What you're about to receive isn't a quiz result<br>or a birth chart summary.</p>
-      <br>
-      <p class="w-note-text">It's your Nervous System Fingerprint —<br>nine chapters that decode exactly how you're wired.</p>
-      <br>
-      <p class="w-note-text">How you regulate. How you rest. How you love.<br>How you thrive.</p>
-      <br>
-      <p class="w-note-text">Specific to you, and no one else.</p>
-    </div>
-
-    <!-- CTA -->
-    <div class="w-cta-wrap">
-      <button class="w-cta-btn" id="start-btn">I'm ready — let's begin</button>
-    </div>
-
-    <!-- Footer ornament -->
-    <div class="w-footer-orn">
-      <svg width="100" height="16" viewBox="0 0 100 16" fill="none">
-        <line x1="0" y1="8" x2="40" y2="8" stroke="#b09060" stroke-width="0.6" opacity="0.45"/>
-        <polygon points="50,3 55,8 50,13 45,8" fill="#b09060" opacity="0.38"/>
-        <line x1="60" y1="8" x2="100" y2="8" stroke="#b09060" stroke-width="0.6" opacity="0.45"/>
-      </svg>
-    </div>
+    <button id="start-btn" style="display:block;width:100%;max-width:400px;padding:19px 24px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#f5efe6;background:#363920;border:none;border-radius:5px;cursor:pointer;position:relative;z-index:999;">I'm ready — let's begin</button>
 
   </div>
 </div>
+
 
 <!-- ═══════════════════════════════════
      SCREEN 2: INTAKE
