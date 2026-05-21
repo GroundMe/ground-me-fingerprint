@@ -447,7 +447,7 @@ select.field{font-style:normal;font-size:16px;font-family:'Jost',sans-serif;font
 
     <!-- CTA -->
     <div class="w-cta-wrap">
-      <button class="w-cta-btn" onclick="goToIntake()">I'm ready — let's begin</button>
+      <button class="w-cta-btn" id="start-btn">I'm ready — let's begin</button>
     </div>
 
     <!-- Footer ornament -->
@@ -1079,6 +1079,20 @@ function downloadPDF() {
   a.click();
   URL.revokeObjectURL(url);
 }
+</script>
+
+<script>
+// Belt-and-suspenders click handler for start button
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.getElementById('start-btn');
+  if (btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      goToIntake();
+    });
+  }
+});
 </script>
 </body>
 </html>
