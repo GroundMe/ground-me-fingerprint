@@ -1,20 +1,13 @@
 export default async function handler(req, res) {
-  // 1. Check if the request is valid
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
   const { name, dob, time, place, answers } = req.body;
 
-  // 2. Check for API Keys
   if (!process.env.ANTHROPIC_API_KEY || !process.env.BODYGRAPH_API_KEY) {
-    console.error("MISSING KEYS: Ensure ANTHROPIC_API_KEY and BODYGRAPH_API_KEY are in Vercel Settings.");
-    return res.status(500).json({ error: 'API keys are not configured in Vercel.' });
+    return res.status(500).json({ error: 'API keys are missing in Vercel Settings.' });
   }
 
   try {
-    // 3. Talk to Bodygraph (Get Human Design Data)
-    console.log("Calling Bodygraph for:", place);
+    // 1. Get Human Design Data
     const bgRes = await fetch('https://api.bodygraphchart.com/v1/charts', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${process.env.BODYGRAPH_API_KEY}` },
@@ -23,14 +16,11 @@ export default async function handler(req, res) {
 
     if (!bgRes.ok) {
       const bgErr = await bgRes.text();
-      console.error("Bodygraph Error:", bgErr);
-      throw new Error("Bodygraph calculation failed. Check your Bodygraph API key.");
+      throw new Error("Bodygraph Error: " + bgErr);
     }
-
     const bgData = await bgRes.json();
 
-    // 4. Talk to Claude (Generate the Blueprint)
-    console.log("Calling Anthropic...");
+    // 2. Talk to Claude
     const antRes = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -47,22 +37,21 @@ export default async function handler(req, res) {
           Human Design Data: ${JSON.stringify(bgData)}. 
           User Answers: ${JSON.stringify(answers)}.
           Use format: [CHAPTER_1_TITLE]...[/CHAPTER_1_TITLE] [CHAPTER_1_CONTENT]...[/CHAPTER_1_CONTENT] for all 9 chapters.
-          Tone: Deeply insightful, short sentences, no fluff.`
+          Tone: Deeply insightful, short sentences, no clinical language.`
         }]
       })
     });
 
+    const result = await antRes.json();
+
     if (!antRes.ok) {
-      const antErr = await antRes.text();
-      console.error("Anthropic Error:", antErr);
-      throw new Error("Claude connection failed. Check your Anthropic API key and billing/credits.");
+      // THIS IS THE KEY: We are sending the actual Claude error back to the browser
+      throw new Error("Claude says: " + (result.error ? result.error.message : JSON.stringify(result)));
     }
 
-    const finalData = await antRes.json();
-    return res.status(200).json(finalData);
+    return res.status(200).json(result);
 
   } catch (error) {
-    console.error("CRASH ERROR:", error.message);
     return res.status(500).json({ error: error.message });
   }
 }
