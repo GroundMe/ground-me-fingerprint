@@ -1,35 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>TESTING DEPLOY</title>
-    <style>
-        body { background: #F5F0E8; font-family: sans-serif; text-align: center; padding-top: 100px; }
-        .test-btn { 
-            padding: 20px 40px; 
-            background: #363920; 
-            color: white; 
-            border: 5px solid red; /* IF YOU SEE THIS RED BORDER, IT WORKED */
-            cursor: pointer; 
-            font-size: 20px;
-        }
-        #intake { display: none; padding: 50px; background: white; margin-top: 20px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Nervous System Fingerprint — Ground Me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--moss:#414224;--sage:#80744A;--mist:#F5F0E8;--quartz:#C5A47E;--terra:#8D4A3C;--cream:#FAF7F2;--mid:#7a6e65;--light:#DDD5C8;}
+html,body{min-height:100vh;background:var(--mist);font-family:'Jost',sans-serif;font-weight:300;color:var(--moss);overflow-x:hidden;}
+.screen{display:none;min-height:100vh;width:100%;flex-direction:column;animation:fadeIn 0.6s ease forwards;}
+.screen.active{display:flex;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.w-inner{max-width:400px;width:100%;margin:auto;text-align:center;padding:2rem;}
+.w-logo{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:0.22em;color:#7a6848;margin-bottom:2rem;}
+.w-headline{font-family:'Cormorant Garamond',serif;font-size:72px;line-height:1;margin-bottom:1rem;color:#1e1a10;}
+.w-script{font-family:'Dancing Script',cursive;font-size:78px;color:#6b2d1f;}
+.w-subhead{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:3rem;line-height:1.3;}
+.btn-gold{display:block;width:100%;padding:20px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#f5efe6;background:#363920;border:none;border-radius:4px;cursor:pointer;transition:opacity 0.2s;}
+.intake-wrap{width:100%;max-width:600px;margin:0 auto;padding:4rem 2rem;}
+.progress-bar{width:100%;height:2px;background:var(--light);margin-bottom:3rem;}
+.progress-fill{height:100%;background:var(--quartz);width:10%;transition:width 0.4s;}
+.step-q{font-family:'Cormorant Garamond',serif;font-size:38px;margin-bottom:2rem;line-height:1.2;}
+.field{width:100%;padding:15px 0;font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;background:transparent;border:none;border-bottom:1px solid var(--light);outline:none;margin-bottom:2rem;}
+.choices{display:grid;gap:10px;margin-bottom:3rem;}
+.choice-btn{padding:1.2rem;font-family:'Cormorant Garamond',serif;font-size:18px;background:transparent;border:none;border-bottom:0.5px solid var(--light);cursor:pointer;text-align:left;transition:all 0.2s;}
+.choice-btn.selected{border-bottom:1.5px solid var(--moss);font-weight:500;}
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+.loading-screen{background:var(--moss);color:var(--cream);justify-content:center;align-items:center;text-align:center;}
+</style>
 </head>
 <body>
-    <h1>Testing Connection</h1>
-    <button class="test-btn" onclick="start()">CLICK ME TO START</button>
+
+<div id="screen-welcome" class="screen active">
+  <div class="w-inner">
+    <p class="w-logo">ground <em>me</em></p>
+    <h1 class="w-headline">You <span class="w-script">found it.</span></h1>
+    <p class="w-subhead">The map that makes sense of <em>all of you.</em></p>
+    <button class="btn-gold" onclick="showScreen('screen-intake')">I'm ready — let's begin</button>
+  </div>
+</div>
+
+<div id="screen-intake" class="screen">
+  <div class="intake-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
     
-    <div id="intake">
-        <h2>IT WORKED!</h2>
-        <p>The button is now talking to the code. We can now put the real design back in.</p>
+    <div class="step active" id="step-1">
+      <h2 class="step-q">First — what's your name?</h2>
+      <input type="text" class="field" id="f-name" placeholder="Your name">
+      <div class="step-nav"><span></span><button class="btn-gold" onclick="nextStep(1)" style="width:auto;padding:15px 40px;">Continue</button></div>
     </div>
 
-    <script>
-        function start() {
-            console.log("Button clicked");
-            document.getElementById('intake').style.display = 'block';
-        }
-    </script>
+    <div id="step-2" class="step" style="display:none;">
+      <h2 class="step-q">Your birth details</h2>
+      <input type="date" class="field" id="f-dob">
+      <input type="time" class="field" id="f-time">
+      <input type="text" class="field" id="f-city" placeholder="City of birth">
+      <input type="text" class="field" id="f-country" placeholder="Country">
+      <div class="step-nav"><span></span><button class="btn-gold" onclick="nextStep(2)" style="width:auto;padding:15px 40px;">Continue</button></div>
+    </div>
+
+    <div id="step-3" class="step" style="display:none;">
+      <h2 class="step-q">How's your energy?</h2>
+      <div class="choices">
+        <button class="choice-btn" onclick="sel(3, this)">I start strong but fade</button>
+        <button class="choice-btn" onclick="sel(3, this)">Inconsistent bursts</button>
+        <button class="choice-btn" onclick="sel(3, this)">Low and steady</button>
+      </div>
+      <button class="btn-gold" id="btn-3" onclick="nextStep(3)" disabled>Continue</button>
+    </div>
+
+    <div id="step-4" class="step" style="display:none;">
+      <h2 class="step-q">When overwhelmed, you...</h2>
+      <div class="choices">
+        <button class="choice-btn" onclick="sel(4, this)">Withdraw / Silence</button>
+        <button class="choice-btn" onclick="sel(4, this)">Push harder</button>
+        <button class="choice-btn" onclick="sel(4, this)">Overthink everything</button>
+      </div>
+      <button class="btn-gold" id="btn-4" onclick="nextStep(4)" disabled>Continue</button>
+    </div>
+
+    <div id="step-5" class="step" style="display:none;">
+      <h2 class="step-q">What brought you here?</h2>
+      <div class="choices">
+        <button class="choice-btn" onclick="sel(5, this)">I'm exhausted</button>
+        <button class="choice-btn" onclick="sel(5, this)">I feel unseen</button>
+        <button class="choice-btn" onclick="sel(5, this)">Time for a change</button>
+      </div>
+      <button class="btn-gold" id="btn-5" onclick="generate()" disabled>Generate Fingerprint →</button>
+    </div>
+  </div>
+</div>
+
+<div id="screen-loading" class="screen loading-screen">
+  <h2 style="font-family:'Dancing Script';font-size:40px;">Decoding your blueprint...</h2>
+  <p style="margin-top:2rem;opacity:0.6;font-size:12px;letter-spacing:2px;">TALKING TO BODYGRAPH API</p>
+</div>
+
+<div id="screen-results" class="screen" style="padding:2rem;background:var(--cream);overflow-y:auto;">
+  <div id="results-content" style="max-width:600px;margin:50px auto;"></div>
+</div>
+
+<script>
+const state = { name: '', dob: '', time: '', place: '', answers: {} };
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function nextStep(n) {
+  if(n===1) state.name = document.getElementById('f-name').value;
+  if(n===2) {
+    state.dob = document.getElementById('f-dob').value;
+    state.time = document.getElementById('f-time').value;
+    state.place = document.getElementById('f-city').value + ', ' + document.getElementById('f-country').value;
+  }
+  document.getElementById('step-'+n).style.display = 'none';
+  document.getElementById('step-'+(n+1)).style.display = 'block';
+  document.getElementById('progress-fill').style.width = (n*20)+'%';
+}
+
+function sel(step, btn) {
+  document.querySelectorAll('#step-'+step+' .choice-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  state.answers['q'+step] = btn.innerText;
+  document.getElementById('btn-'+step).disabled = false;
+}
+
+async function generate() {
+  showScreen('screen-loading');
+  try {
+    const res = await fetch('/api/generate', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(state)
+    });
+    const data = await res.json();
+    const text = data.content[0].text;
+    
+    let html = `<h1 style="font-family:'Cormorant Garamond';font-size:48px;margin-bottom:2rem;">Ready, ${state.name}.</h1>`;
+    for(let i=1; i<=9; i++) {
+      const t = text.match(new RegExp(`\\[CHAPTER_${i}_TITLE\\](.*?)\\[/CHAPTER_${i}_TITLE\\]`, 's'));
+      const c = text.match(new RegExp(`\\[CHAPTER_${i}_CONTENT\\](.*?)\\[/CHAPTER_${i}_CONTENT\\]`, 's'));
+      if(t && c) {
+        html += `<div style="margin-bottom:4rem;">
+          <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;opacity:0.5;">Chapter 0${i}</p>
+          <h3 style="font-family:'Cormorant Garamond';font-size:32px;margin-bottom:1.5rem;">${t[1]}</h3>
+          <p style="font-family:'Jost';line-height:1.8;opacity:0.8;font-size:16px;">${c[1]}</p>
+        </div>`;
+      }
+    }
+    document.getElementById('results-content').innerHTML = html;
+    showScreen('screen-results');
+  } catch(e) {
+    alert("Connection error. Check your Vercel logs.");
+    showScreen('screen-intake');
+  }
+}
+</script>
 </body>
 </html>
