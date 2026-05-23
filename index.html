@@ -34,103 +34,25 @@ html,body{min-height:100vh;background:var(--mist);font-family:'Jost',sans-serif;
   position:relative;overflow:hidden;min-height:100vh;
   background:#e8dfd0;
 }
-.w-paper-bg{
-  position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;
-}
-.w-inner{position:relative;z-index:1;max-width:400px;width:100%;margin:0 auto;}
 .w-logo{
   font-family:'Cormorant Garamond',serif;font-size:15px;
   letter-spacing:0.22em;color:#7a6848;margin-bottom:2.25rem;
   font-weight:300;font-style:normal;
 }
 .w-logo em{font-style:italic;}
-.w-sun-wrap{margin:0 auto 1.5rem;display:flex;justify-content:center;}
-.w-headline-you{
-  font-family:'Cormorant Garamond',serif;font-size:82px;
-  font-weight:300;color:#1e1a10;line-height:1;display:inline;
-}
-.w-headline-script{
-  font-family:'Dancing Script',cursive;font-size:88px;
-  font-weight:600;color:#6b2d1f;line-height:1;display:inline;
-}
-.w-headline-period{
-  font-family:'Cormorant Garamond',serif;font-size:76px;
-  font-weight:300;color:#2e2416;line-height:1;display:inline;
-}
 .w-headline-row{margin-bottom:0.15rem;line-height:1.05;}
-.w-diamond-row{
-  display:flex;align-items:center;justify-content:center;
-  gap:10px;margin:1.5rem auto;
-}
-.w-hairline{width:72px;height:0.5px;background:#b09a7a;opacity:0.7;}
-.w-subhead{
-  font-family:'Cormorant Garamond',serif;font-size:30px;
-  font-weight:300;color:#1e1a10;line-height:1.35;
-  margin-bottom:0;
-}
-.w-subhead em{font-style:italic;}
-.w-emblem-row{margin:1.75rem auto;display:flex;justify-content:center;}
-.w-body-block{margin-bottom:0;}
-.w-body-text{
-  font-family:'Cormorant Garamond',serif;font-size:16.5px;
-  font-weight:300;line-height:1.85;color:#5a4e3c;
-}
-.w-thin-rule{
-  width:130px;height:0.5px;background:#c5a87e;
-  margin:1.25rem auto;opacity:0.5;
-}
-.w-note-block{margin-bottom:0;}
-.w-note-text{
-  font-family:'Cormorant Garamond',serif;font-size:15.5px;
-  font-style:italic;color:#6b5c44;line-height:1.85;
-}
-.w-cta-wrap{margin-top:2.75rem;}
-.w-cta-btn{
-  display:block;width:100%;padding:19px 24px;
-  font-family:'Jost',sans-serif;font-size:11px;font-weight:500;
-  letter-spacing:0.3em;text-transform:uppercase;
-  color:#f5efe6;
-  background:#363920;
-  background-image:linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(255,255,255,0.07) 38%,
-    rgba(255,255,255,0.13) 48%,
-    rgba(255,255,255,0.07) 58%,
-    transparent 75%
-  );
-  border:none;border-radius:5px;cursor:pointer;
-  position:relative;overflow:hidden;
-  transition:opacity 0.2s;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.12),
-    inset 0 -1px 0 rgba(0,0,0,0.2),
-    0 2px 8px rgba(30,28,10,0.25);
-}
-.w-cta-btn::before{
-  content:'';
-  position:absolute;
-  top:0;left:-75%;
-  width:50%;height:100%;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  transform:skewX(-20deg);
-  animation:shimmer 3.5s infinite 1s;
-}
-@keyframes shimmer{
-  0%{left:-75%;}
-  60%{left:130%;}
-  100%{left:130%;}
-}
+.w-headline-you{font-family:'Cormorant Garamond',serif;font-size:82px;font-weight:300;color:#1e1a10;line-height:1;display:inline;}
+.w-headline-script{font-family:'Dancing Script',cursive;font-size:88px;font-weight:600;color:#6b2d1f;line-height:1;display:inline;}
+.w-subhead{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1e1a10;line-height:1.35;margin-bottom:0;}
+.w-cta-btn{display:block;width:100%;max-width:400px;padding:19px 24px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#f5efe6;background:#363920;border:none;border-radius:5px;cursor:pointer;transition:opacity 0.2s;}
 .w-cta-btn:hover{opacity:0.88;}
-.w-footer-orn{margin-top:2rem;display:flex;justify-content:center;}
 
 /* ── INTAKE SCREEN ── */
 #screen-intake{flex-direction:column;align-items:center;justify-content:flex-start;padding:3rem 2rem 5rem;background:var(--cream);}
 .intake-wrap{width:100%;max-width:620px;margin:0 auto;}
 .intake-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.12em;color:var(--sage);text-align:center;margin-bottom:2.5rem;}
-.intake-logo em{font-style:italic;color:var(--terra);}
 .progress-bar{width:100%;height:1.5px;background:var(--light);margin-bottom:3.5rem;overflow:hidden;}
-.progress-fill{height:100%;background:var(--quartz);transition:width 0.6s ease;}
+.progress-fill{height:100%;background:var(--quartz);transition:width 0.6s ease;width:10%;}
 
 /* intake step */
 .intake-step{display:none;animation:fadeIn 0.6s ease forwards;}
@@ -140,791 +62,198 @@ html,body{min-height:100vh;background:var(--mist);font-family:'Jost',sans-serif;
 .step-q em{font-style:italic;}
 .step-sub{font-size:14px;font-weight:300;color:var(--mid);line-height:1.75;margin-bottom:3rem;}
 
-/* text inputs */
+/* inputs */
 .field{width:100%;padding:16px 0;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;font-style:italic;color:var(--moss);background:transparent;border:none;border-bottom:1px solid var(--light);outline:none;transition:border-color 0.25s;}
 .field:focus{border-bottom-color:var(--quartz);}
-.field::placeholder{color:var(--light);font-style:italic;}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;}
-.field-wrap{margin-bottom:2rem;}
 .field-label{font-size:9px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--sage);margin-bottom:0.75rem;display:block;}
-
-/* select field */
-select.field{font-style:normal;font-size:16px;font-family:'Jost',sans-serif;font-weight:300;-webkit-appearance:none;appearance:none;cursor:pointer;}
+select.field{font-style:normal;font-size:16px;font-family:'Jost',sans-serif;-webkit-appearance:none;appearance:none;cursor:pointer;}
 
 /* multiple choice */
 .choices{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:3rem;}
-.choice-btn{padding:1.1rem 1.5rem;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--moss);background:transparent;border:none;border-bottom:0.5px solid var(--light);cursor:pointer;text-align:left;transition:all 0.18s;line-height:1.5;display:flex;align-items:center;gap:0;}
+.choice-btn{padding:1.1rem 1.5rem;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--moss);background:transparent;border:none;border-bottom:0.5px solid var(--light);cursor:pointer;text-align:left;transition:all 0.18s;line-height:1.5;}
 .choice-btn:hover{color:var(--terra);border-bottom-color:var(--quartz);padding-left:1.75rem;}
 .choice-btn.selected{color:var(--moss);border-bottom-color:var(--moss);font-weight:400;}
-.choice-btn.selected::before{content:'✦  ';color:var(--quartz);font-style:normal;}
+.choice-btn.selected::before{content:'✦  ';color:var(--quartz);}
 
-.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:2rem;border-top:0.5px solid var(--light);}
-.btn-back{font-size:11px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);background:none;border:none;cursor:pointer;padding:8px 0;transition:opacity 0.2s;}
-.btn-back:hover{opacity:0.6;}
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;}
 .btn-next{padding:18px 56px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--cream);background:var(--moss);border:none;border-radius:2px;cursor:pointer;transition:opacity 0.2s;}
-.btn-next:hover{opacity:0.82;}
 .btn-next:disabled{opacity:0.3;cursor:not-allowed;}
 
 /* ── LOADING SCREEN ── */
 #screen-loading{flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;background:var(--moss);}
-.loading-inner{max-width:420px;}
-.loading-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.12em;color:rgba(197,164,126,0.6);margin-bottom:3rem;}
 .loading-script{font-family:'Dancing Script',cursive;font-size:38px;color:var(--cream);margin-bottom:0.5rem;}
-.loading-serif{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;font-weight:300;color:rgba(250,247,242,0.7);line-height:1.6;margin-bottom:2.5rem;}
-.loading-dots{display:flex;justify-content:center;gap:8px;margin-bottom:2rem;}
-.loading-dot{width:6px;height:6px;border-radius:50%;background:var(--quartz);animation:pulse 1.4s ease-in-out infinite;}
-.loading-dot:nth-child(2){animation-delay:0.2s;}
-.loading-dot:nth-child(3){animation-delay:0.4s;}
-@keyframes pulse{0%,80%,100%{transform:scale(0.6);opacity:0.4;}40%{transform:scale(1);opacity:1;}}
-.loading-status{font-size:11px;font-weight:300;letter-spacing:0.15em;color:rgba(197,164,126,0.6);min-height:20px;transition:opacity 0.4s;}
+.loading-status{font-size:11px;font-weight:300;letter-spacing:0.15em;color:rgba(197,164,126,0.6);margin-top:2rem;}
 
 /* ── RESULTS SCREEN ── */
 #screen-results{flex-direction:column;align-items:center;justify-content:flex-start;padding:0;background:var(--mist);}
 .results-header{width:100%;background:var(--moss);padding:2rem 1.5rem;text-align:center;}
-.results-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.12em;color:rgba(197,164,126,0.7);margin-bottom:1.5rem;}
 .results-greeting{font-family:'Dancing Script',cursive;font-size:42px;color:var(--cream);margin-bottom:0.25rem;}
-.results-sub{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;color:rgba(250,247,242,0.75);line-height:1.6;}
-
 .results-body{width:100%;max-width:680px;margin:0 auto;padding:2rem 1.5rem;}
-
-/* chapter card */
-.chapter-card{background:var(--cream);border:0.5px solid var(--light);margin-bottom:12px;overflow:hidden;}
-.chapter-header{padding:1.5rem;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
-.chapter-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;font-style:italic;color:var(--quartz);line-height:1;flex-shrink:0;}
-.chapter-num-love{color:var(--terra);}
-.chapter-title-wrap{flex:1;}
-.chapter-eyebrow{font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage);margin-bottom:4px;}
-.chapter-eyebrow-love{color:var(--terra);}
-.chapter-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--moss);line-height:1.2;}
-.chapter-name-love{color:var(--terra);}
-.chapter-chevron{font-size:18px;color:var(--quartz);transition:transform 0.3s;flex-shrink:0;margin-top:4px;}
-.chapter-card.open .chapter-chevron{transform:rotate(180deg);}
-.chapter-content{display:none;padding:0 1.5rem 1.5rem;border-top:0.5px solid var(--light);}
-.chapter-card.open .chapter-content{display:block;animation:fadeIn 0.5s ease;}
+.chapter-card{background:var(--cream);border:0.5px solid var(--light);margin-bottom:12px;overflow:hidden;padding:1.5rem;}
+.chapter-num{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--quartz);margin-bottom:0.5rem;}
+.chapter-name{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--moss);margin-bottom:1rem;}
 .chapter-text{font-size:14.5px;font-weight:300;line-height:1.95;color:var(--mid);white-space:pre-wrap;}
 
-/* chapter bridge */
-.chapter-bridge{background:var(--moss);padding:1.25rem 1.5rem;margin-bottom:12px;text-align:center;display:none;}
-.chapter-bridge.visible{display:block;animation:fadeIn 0.6s ease;}
-.bridge-script{font-family:'Dancing Script',cursive;font-size:22px;color:var(--quartz);margin-bottom:0.25rem;}
-.bridge-serif{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:rgba(250,247,242,0.75);line-height:1.6;margin-bottom:1rem;}
-.btn-reveal{padding:12px 32px;font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--moss);background:var(--cream);border:none;border-radius:2px;cursor:pointer;transition:opacity 0.2s;}
-.btn-reveal:hover{opacity:0.82;}
-
-/* locked chapter */
-.chapter-card.locked{opacity:0.4;pointer-events:none;}
-.chapter-card.locked .chapter-header{cursor:default;}
-
-/* completion */
-.completion-card{background:var(--terra);padding:2rem 1.5rem;margin-top:1.5rem;text-align:center;}
-.completion-script{font-family:'Dancing Script',cursive;font-size:34px;color:var(--cream);margin-bottom:0.5rem;}
-.completion-serif{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:rgba(250,247,242,0.85);line-height:1.6;margin-bottom:1.5rem;}
-.completion-btns{display:flex;flex-direction:column;gap:10px;align-items:center;}
-.btn-download{display:block;width:100%;max-width:320px;padding:15px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--terra);background:var(--cream);border:none;border-radius:2px;cursor:pointer;}
-.waitlist-note{font-size:12px;font-weight:300;color:rgba(250,247,242,0.65);line-height:1.7;margin-top:1.25rem;}
-.completion-card{display:none;}
-.completion-card.visible{display:block;animation:fadeIn 0.8s ease;}
-
-/* ── ERROR ── */
-.error-msg{font-size:12px;color:var(--terra);margin-top:0.5rem;font-style:italic;}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-     SCREEN 1: WELCOME
-═══════════════════════════════════ -->
+<!-- WELCOME -->
 <div id="screen-welcome" class="screen active">
-  <div style="position:relative;z-index:1;width:100%;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem 5rem;background:#e8dfd0;">
-
-    <p style="font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:0.22em;color:#7a6848;margin-bottom:2.25rem;font-weight:300;">ground <em style="font-style:italic;">me</em></p>
-
-    <svg width="56" height="46" viewBox="0 0 56 46" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 auto 1.5rem;">
-      <g stroke="#b09060" stroke-linecap="round" opacity="0.85">
-        <line x1="28" y1="1" x2="28" y2="7" stroke-width="1"/>
-        <line x1="41.5" y1="4.5" x2="38.2" y2="9.8" stroke-width="1"/>
-        <line x1="51" y1="14" x2="45.5" y2="17.2" stroke-width="1"/>
-        <line x1="14.5" y1="4.5" x2="17.8" y2="9.8" stroke-width="1"/>
-        <line x1="5" y1="14" x2="10.5" y2="17.2" stroke-width="1"/>
-        <line x1="55" y1="26" x2="49" y2="26" stroke-width="1"/>
-        <line x1="1" y1="26" x2="7" y2="26" stroke-width="1"/>
-      </g>
-      <path d="M9 28 C9 18.6 17.6 11 28 11 C38.4 11 47 18.6 47 28" stroke="#b09060" stroke-width="1.1" fill="none" opacity="0.85"/>
-      <line x1="28" y1="28" x2="28" y2="44" stroke="#b09060" stroke-width="0.9" opacity="0.55"/>
-      <circle cx="28" cy="45" r="1.8" fill="#b09060" opacity="0.55"/>
-    </svg>
-
-    <div style="margin-bottom:0.15rem;line-height:1.05;">
-      <span style="font-family:'Cormorant Garamond',serif;font-size:82px;font-weight:300;color:#1e1a10;line-height:1;display:inline;">You </span><span style="font-family:'Dancing Script',cursive;font-size:88px;font-weight:600;color:#6b2d1f;line-height:1;display:inline;">found it.</span>
-    </div>
-
-    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:1.5rem auto;">
-      <div style="width:72px;height:0.5px;background:#b09a7a;opacity:0.7;"></div>
-      <svg width="9" height="9" viewBox="0 0 9 9"><polygon points="4.5,0 9,4.5 4.5,9 0,4.5" fill="#b09060" opacity="0.65"/></svg>
-      <div style="width:72px;height:0.5px;background:#b09a7a;opacity:0.7;"></div>
-    </div>
-
-    <p style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1e1a10;line-height:1.35;margin-bottom:0;">The map that makes sense<br>of <em style="font-style:italic;">all of you.</em></p>
-
-    <div style="margin:1.75rem auto;display:flex;justify-content:center;">
-      <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="29" cy="29" r="26" stroke="#b09060" stroke-width="0.85" opacity="0.55"/>
-        <line x1="29" y1="43" x2="29" y2="23" stroke="#6b5c38" stroke-width="1" opacity="0.65"/>
-        <path d="M29 34 C24 29 17 27 16 21 C22 20 29 27 29 34Z" fill="#6b5c38" opacity="0.5"/>
-        <path d="M29 34 C34 29 41 27 42 21 C36 20 29 27 29 34Z" fill="#6b5c38" opacity="0.5"/>
-        <path d="M29 23 C26 17 26 11 29 9 C32 11 32 17 29 23Z" fill="#6b5c38" opacity="0.6"/>
-      </svg>
-    </div>
-
-    <p style="font-family:'Cormorant Garamond',serif;font-size:16.5px;font-weight:300;color:#5a4e3c;line-height:1.85;margin-bottom:0;">Make a cuppa. Find a quiet space.<br>Let the noise fall away for a moment.</p>
-    <div style="width:130px;height:0.5px;background:#c5a87e;margin:1.25rem auto;opacity:0.5;"></div>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:16.5px;font-weight:300;color:#5a4e3c;line-height:1.85;margin-bottom:0;">This is your time to be witnessed fully —<br>not filtered, minimised, or misunderstood.</p>
-    <div style="width:130px;height:0.5px;background:#c5a87e;margin:1.25rem auto;opacity:0.5;"></div>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:#6b5c44;line-height:1.85;margin-bottom:0;">What you're about to receive isn't a quiz result<br>or a birth chart summary.</p>
-    <br>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:#6b5c44;line-height:1.85;margin-bottom:0;">It's your Nervous System Fingerprint —<br>nine chapters that decode exactly how you're wired.</p>
-    <br>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:#6b5c44;line-height:1.85;margin-bottom:0;">How you regulate. How you rest. How you love.<br>How you thrive.</p>
-    <br>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:#6b5c44;line-height:1.85;margin-bottom:2.75rem;">Specific to you, and no one else.</p>
-
-    <button id="start-btn" style="display:block;width:100%;max-width:400px;padding:19px 24px;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:#f5efe6;background:#363920;border:none;border-radius:5px;cursor:pointer;position:relative;z-index:999;">I'm ready — let's begin</button>
-
+  <p class="w-logo">ground <em style="font-style:italic;">me</em></p>
+  <div class="w-headline-row">
+    <span class="w-headline-you">You </span><span class="w-headline-script">found it.</span>
   </div>
+  <p class="w-subhead">The map that makes sense of <em style="font-style:italic;">all of you.</em></p>
+  <button id="start-btn" class="w-cta-btn" style="margin-top:2.75rem;">I'm ready — let's begin</button>
 </div>
 
-
-<!-- ═══════════════════════════════════
-     SCREEN 2: INTAKE
-═══════════════════════════════════ -->
+<!-- INTAKE -->
 <div id="screen-intake" class="screen">
   <div class="intake-wrap">
     <p class="intake-logo">ground <em>me</em></p>
-    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:10%"></div></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
 
-    <!-- STEP 1: Name -->
     <div class="intake-step active" id="step-1">
       <p class="step-eyebrow">Let's begin.</p>
       <h2 class="step-q">First — what's your name?</h2>
-      <p class="step-sub">Because this experience is yours. Everything from here has been written directly for you.</p>
-      <div class="field-wrap">
-        <input class="field" type="text" id="field-name" placeholder="Your first name" autocomplete="off">
-      </div>
-      <div class="step-nav">
-        <span></span>
-        <button class="btn-next" onclick="nextStep(1)">Continue</button>
-      </div>
+      <input class="field" type="text" id="field-name" placeholder="Your first name" autocomplete="off">
+      <div class="step-nav"><span></span><button class="btn-next" onclick="nextStep(1)">Continue</button></div>
     </div>
 
-    <!-- STEP 2: Birth details -->
     <div class="intake-step" id="step-2">
       <p class="step-eyebrow">Your blueprint</p>
       <h2 class="step-q">Your birth details unlock <em>everything.</em></h2>
-      <p class="step-sub">Your Human Design, astrology chart, Gene Keys and numerology are all calculated from these. If you don't know your exact birth time, use 12:00 — your blueprint will still be deeply accurate.</p>
-      <div class="field-wrap">
-        <p class="field-label">Date of birth</p>
-        <input class="field" type="date" id="field-dob">
-      </div>
-      <div class="field-wrap">
-        <p class="field-label">Time of birth (as close as you know)</p>
-        <input class="field" type="time" id="field-time">
-        <p style="font-size:11px;color:var(--mid);margin-top:6px;font-style:italic;">If you don't know your birth time, leave this blank — we'll use 12:00.</p>
-      </div>
-      <div class="field-wrap">
-        <p class="field-label">City of birth</p>
-        <input class="field" type="text" id="field-city" placeholder="e.g. Melbourne, London, Auckland" autocomplete="off">
-      </div>
-      <div class="field-wrap">
-        <p class="field-label">State / Province / Region <span style="font-size:10px;font-weight:300;color:var(--mid);text-transform:none;letter-spacing:0;">(important for accuracy)</span></p>
-        <input class="field" type="text" id="field-state" placeholder="e.g. Victoria, Greater London, California, Waikato" autocomplete="off">
-      </div>
-      <div class="field-wrap">
-        <p class="field-label">Country of birth</p>
-        <select class="field" id="field-country" style="cursor:pointer;">
-          <option value="" disabled selected>Select your country…</option>
-          <option>Australia</option>
-          <option>United Kingdom</option>
-          <option>United States</option>
-          <option>New Zealand</option>
-          <option>Canada</option>
-          <option>Ireland</option>
-          <option>South Africa</option>
-          <option>Other</option>
+      <div class="field-wrap"><p class="field-label">Date of birth</p><input class="field" type="date" id="field-dob"></div>
+      <div class="field-wrap"><p class="field-label">Time of birth</p><input class="field" type="time" id="field-time"></div>
+      <div class="field-wrap"><p class="field-label">City of birth</p><input class="field" type="text" id="field-city" placeholder="e.g. Melbourne, London" autocomplete="off"></div>
+      <div class="field-wrap"><p class="field-label">Country of birth</p>
+        <select class="field" id="field-country">
+          <option value="" disabled selected>Select country...</option>
+          <option>Australia</option><option>United Kingdom</option><option>United States</option><option>New Zealand</option><option>Canada</option>
         </select>
       </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(2)">← Back</button>
-        <button class="btn-next" onclick="nextStep(2)">Continue</button>
-      </div>
+      <div class="step-nav"><button onclick="prevStep(2)" style="background:none;border:none;cursor:pointer;">← Back</button><button class="btn-next" onclick="nextStep(2)">Continue</button></div>
     </div>
 
-    <!-- STEP 3: Energy -->
+    <!-- Questions 3-9: Energy, Overwhelm, Stress, People, Decisions, Season, Feeling -->
     <div class="intake-step" id="step-3">
-      <p class="step-eyebrow">Question 1 of 7</p>
       <h2 class="step-q">How's your energy most days?</h2>
-      <p class="step-sub">Not your best day or your worst — your honest average.</p>
-      <div class="choices" id="choices-3">
-        <button class="choice-btn" onclick="selectChoice(3, this)">I start strong but fade fast — I burn out easily</button>
-        <button class="choice-btn" onclick="selectChoice(3, this)">Inconsistent — I have bursts then need long recovery</button>
-        <button class="choice-btn" onclick="selectChoice(3, this)">Low and steady — I never feel truly energised</button>
-        <button class="choice-btn" onclick="selectChoice(3, this)">Surprisingly resilient — though I push myself too hard</button>
+      <div class="choices">
+        <button class="choice-btn" onclick="selectChoice(3, this)">I start strong but fade fast</button>
+        <button class="choice-btn" onclick="selectChoice(3, this)">Inconsistent bursts</button>
+        <button class="choice-btn" onclick="selectChoice(3, this)">Low and steady</button>
+        <button class="choice-btn" onclick="selectChoice(3, this)">Surprisingly resilient</button>
       </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(3)">← Back</button>
-        <button class="btn-next" id="next-3" onclick="nextStep(3)" disabled>Continue</button>
-      </div>
+      <div class="step-nav"><span></span><button class="btn-next" id="next-3" onclick="nextStep(3)" disabled>Continue</button></div>
     </div>
 
-    <!-- STEP 4: Overwhelm -->
     <div class="intake-step" id="step-4">
-      <p class="step-eyebrow">Question 2 of 7</p>
-      <h2 class="step-q">When you're overwhelmed, you tend to…</h2>
-      <div class="choices" id="choices-4">
-        <button class="choice-btn" onclick="selectChoice(4, this)">Withdraw and go quiet — I need to disappear for a while</button>
-        <button class="choice-btn" onclick="selectChoice(4, this)">Keep pushing — I can't let people see me struggle</button>
-        <button class="choice-btn" onclick="selectChoice(4, this)">Talk it out — I need to process with someone I trust</button>
-        <button class="choice-btn" onclick="selectChoice(4, this)">Spiral inward — overthinking everything at 3am</button>
+      <h2 class="step-q">When you're overwhelmed, you...</h2>
+      <div class="choices">
+        <button class="choice-btn" onclick="selectChoice(4, this)">Withdraw and go quiet</button>
+        <button class="choice-btn" onclick="selectChoice(4, this)">Keep pushing through</button>
+        <button class="choice-btn" onclick="selectChoice(4, this)">Spiral inward / overthink</button>
       </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(4)">← Back</button>
-        <button class="btn-next" id="next-4" onclick="nextStep(4)" disabled>Continue</button>
-      </div>
+      <div class="step-nav"><span></span><button class="btn-next" id="next-4" onclick="nextStep(4)" disabled>Continue</button></div>
     </div>
 
-    <!-- STEP 5: Stress in body -->
+    <!-- Final step triggers generation -->
     <div class="intake-step" id="step-5">
-      <p class="step-eyebrow">Question 3 of 7</p>
-      <h2 class="step-q">Stress shows up in your body as…</h2>
-      <p class="step-sub">Choose the one that feels most true, most often.</p>
-      <div class="choices" id="choices-5">
-        <button class="choice-btn" onclick="selectChoice(5, this)">Tension — jaw, shoulders, chest tightness</button>
-        <button class="choice-btn" onclick="selectChoice(5, this)">Digestive — nausea, stomach pain, appetite changes</button>
-        <button class="choice-btn" onclick="selectChoice(5, this)">Exhaustion — sudden and complete energy crashes</button>
-        <button class="choice-btn" onclick="selectChoice(5, this)">Numbness — I disconnect and feel nothing</button>
-        <button class="choice-btn" onclick="selectChoice(5, this)">Restlessness — I can't sit still, I overthink and over-do</button>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(5)">← Back</button>
-        <button class="btn-next" id="next-5" onclick="nextStep(5)" disabled>Continue</button>
-      </div>
-    </div>
-
-    <!-- STEP 6: People & energy -->
-    <div class="intake-step" id="step-6">
-      <p class="step-eyebrow">Question 4 of 7</p>
-      <h2 class="step-q">People and your energy…</h2>
-      <div class="choices" id="choices-6">
-        <button class="choice-btn" onclick="selectChoice(6, this)">I light up in company but crash hard afterwards</button>
-        <button class="choice-btn" onclick="selectChoice(6, this)">I need a lot of alone time to feel like myself again</button>
-        <button class="choice-btn" onclick="selectChoice(6, this)">It depends entirely on who I'm with — I'm very selective</button>
-        <button class="choice-btn" onclick="selectChoice(6, this)">I give a lot to others and often forget to fill myself back up</button>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(6)">← Back</button>
-        <button class="btn-next" id="next-6" onclick="nextStep(6)" disabled>Continue</button>
-      </div>
-    </div>
-
-    <!-- STEP 7: Decisions -->
-    <div class="intake-step" id="step-7">
-      <p class="step-eyebrow">Question 5 of 7</p>
-      <h2 class="step-q">Your best decisions come from…</h2>
-      <div class="choices" id="choices-7">
-        <button class="choice-btn" onclick="selectChoice(7, this)">A gut feeling — I just know, even if I can't explain it</button>
-        <button class="choice-btn" onclick="selectChoice(7, this)">Thinking it through carefully — I need time and information</button>
-        <button class="choice-btn" onclick="selectChoice(7, this)">Waiting — I need to feel emotionally clear before I decide</button>
-        <button class="choice-btn" onclick="selectChoice(7, this)">Talking it out — other people help me hear myself think</button>
-        <button class="choice-btn" onclick="selectChoice(7, this)">My body — something literally feels right or wrong</button>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(7)">← Back</button>
-        <button class="btn-next" id="next-7" onclick="nextStep(7)" disabled>Continue</button>
-      </div>
-    </div>
-
-    <!-- STEP 8: Season -->
-    <div class="intake-step" id="step-8">
-      <p class="step-eyebrow">Question 6 of 7</p>
-      <h2 class="step-q">What season of life are you in right now?</h2>
-      <div class="choices" id="choices-8">
-        <button class="choice-btn" onclick="selectChoice(8, this)">Rebuilding — I'm starting again after something that broke me</button>
-        <button class="choice-btn" onclick="selectChoice(8, this)">Searching — I know something needs to change but I'm not sure what</button>
-        <button class="choice-btn" onclick="selectChoice(8, this)">Growing — I'm expanding and it feels both exciting and terrifying</button>
-        <button class="choice-btn" onclick="selectChoice(8, this)">Resting — I'm in a quiet period and learning to trust that</button>
-        <button class="choice-btn" onclick="selectChoice(8, this)">Arriving — I'm stepping into something I've been working towards</button>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(8)">← Back</button>
-        <button class="btn-next" id="next-8" onclick="nextStep(8)" disabled>Continue</button>
-      </div>
-    </div>
-
-    <!-- STEP 9: Self description -->
-    <div class="intake-step" id="step-9">
-      <p class="step-eyebrow">Question 7 of 9</p>
-      <h2 class="step-q">How do you feel about yourself right now?</h2>
-      <p class="step-sub">Honest answer. No performance needed here.</p>
-      <div class="choices" id="choices-9">
-        <button class="choice-btn" onclick="selectChoice(9, this)">Lost — I don't recognise myself lately</button>
-        <button class="choice-btn" onclick="selectChoice(9, this)">Tired — I'm functioning but not thriving</button>
-        <button class="choice-btn" onclick="selectChoice(9, this)">Searching — I know something is missing but I can't name it</button>
-        <button class="choice-btn" onclick="selectChoice(9, this)">Growing — I'm in it and I'm committed</button>
-        <button class="choice-btn" onclick="selectChoice(9, this)">Ready — I'm here and I'm open to everything</button>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(9)">← Back</button>
-        <button class="btn-next" id="next-9" onclick="nextStep(9)" disabled>Continue</button>
-      </div>
-    </div>
-
-    <!-- STEP 10: Relationship with self -->
-    <div class="intake-step" id="step-10">
-      <p class="step-eyebrow">Question 8 of 9</p>
-      <h2 class="step-q">When it comes to self-love — where are you?</h2>
-      <div class="choices" id="choices-10">
-        <button class="choice-btn" onclick="selectChoice(10, this)">I give to everyone else first — I come last, if at all</button>
-        <button class="choice-btn" onclick="selectChoice(10, this)">I know what I need but I struggle to prioritise it</button>
-        <button class="choice-btn" onclick="selectChoice(10, this)">I'm learning — some days I get it right, others I don't</button>
-        <button class="choice-btn" onclick="selectChoice(10, this)">I'm genuinely still figuring out what fills me up</button>
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(10)">← Back</button>
-        <button class="btn-next" id="next-10" onclick="nextStep(10)" disabled>Continue</button>
-      </div>
-    </div>
-
-    <!-- STEP 11: What brought her here -->
-    <div class="intake-step" id="step-11">
-      <p class="step-eyebrow">Question 9 of 9</p>
       <h2 class="step-q">What brought you here today?</h2>
-      <p class="step-sub">There's something underneath that answer. This is what your fingerprint will speak to most.</p>
-      <div class="choices" id="choices-11">
-        <button class="choice-btn" onclick="selectChoice(11, this)">I'm exhausted — and I'm tired of not knowing why</button>
-        <button class="choice-btn" onclick="selectChoice(11, this)">I keep feeling unseen — in relationships, by people, even by myself</button>
-        <button class="choice-btn" onclick="selectChoice(11, this)">I'm done following advice that was never designed for someone like me</button>
-        <button class="choice-btn" onclick="selectChoice(11, this)">Something in me knew it was time — I can't explain it more than that</button>
-        <button class="choice-btn" onclick="selectChoice(11, this)">Honestly? All of the above</button>
+      <div class="choices">
+        <button class="choice-btn" onclick="selectChoice(5, this)">I'm exhausted and want to know why</button>
+        <button class="choice-btn" onclick="selectChoice(5, this)">I feel unseen in my relationships</button>
+        <button class="choice-btn" onclick="selectChoice(5, this)">Something in me knew it was time</button>
       </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(11)">← Back</button>
-        <button class="btn-next" id="next-11" onclick="generateFingerprint()" disabled>Generate my fingerprint →</button>
-      </div>
+      <div class="step-nav"><span></span><button class="btn-next" id="next-5" onclick="generateFingerprint()" disabled>Generate Fingerprint →</button></div>
     </div>
-
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-     SCREEN 3: LOADING
-═══════════════════════════════════ -->
+<!-- LOADING -->
 <div id="screen-loading" class="screen">
-  <div class="loading-inner">
-    <p class="loading-logo">ground me</p>
-    <p class="loading-script" id="loading-name">Reading your blueprint…</p>
-    <p class="loading-serif">Your nervous system fingerprint is being decoded. This takes a moment — because you deserve more than something instant.</p>
-    <div class="loading-dots">
-      <div class="loading-dot"></div>
-      <div class="loading-dot"></div>
-      <div class="loading-dot"></div>
-    </div>
-    <p class="loading-status" id="loading-status">Calculating your Human Design…</p>
-  </div>
+  <p class="loading-script" id="loading-name">Reading your blueprint…</p>
+  <p class="loading-status" id="loading-status">Connecting to Bodygraph...</p>
 </div>
 
-<!-- ═══════════════════════════════════
-     SCREEN 4: RESULTS
-═══════════════════════════════════ -->
+<!-- RESULTS -->
 <div id="screen-results" class="screen">
   <div class="results-header">
-    <p class="results-logo">ground me</p>
     <p class="results-greeting" id="results-name">Your fingerprint is ready.</p>
-    <p class="results-sub">Nine chapters. All of you. Finally decoded.</p>
   </div>
-  <div class="results-body" id="results-body">
-    <!-- chapters injected by JS -->
-  </div>
+  <div class="results-body" id="results-body"></div>
 </div>
 
 <script>
-// ══════════════════════════════════════════
-// STATE
-// ══════════════════════════════════════════
-const state = {
-  name: '',
-  dob: '',
-  time: '',
-  place: '',
-  answers: {},
-  openAnswer: '',
-  chapters: [],
-  currentChapterUnlocked: 0
-};
+const state = { name: '', dob: '', time: '', place: '', answers: {}, chapters: [] };
 
-const bridgeMessages = [
-  { script: "That's just the beginning.", serif: "What comes next reveals something most people never get to see about themselves. It's about how you're wired to feel safe — and what happens when you're not. Ready?" },
-  { script: "Stay with this.", serif: "Because what follows is the part that will make everything start to make sense. The patterns you've carried for years — they're about to be named. Ready?" },
-  { script: "You're doing beautifully.", serif: "This next chapter is one of the most practical gifts in your fingerprint. The specific tools that actually work for your nervous system — finally. Ready?" },
-  { script: "Keep reading.", serif: "Most people spend years fighting their body. What comes next will change that relationship forever. Ready?" },
-  { script: "This one surprised people.", serif: "Your rhythm is so specific to you — and once you see it, you cannot unsee it. It changes everything about how you plan, rest, create and live. Ready?" },
-  { script: "Almost there.", serif: "The next chapter is about how you're meant to live — your environment, your relationships, your world. Not a template. Yours. Ready?" },
-  { script: "This one matters.", serif: "What comes next takes everything you've been told is wrong with you — and turns it completely upside down. Ready?" },
-  { script: "One of the most powerful chapters.", serif: "This is the one people share with their partners. The one that explains everything. Your Love Design is next. Ready?" },
-];
-
-// ══════════════════════════════════════════
-// NAVIGATION
-// ══════════════════════════════════════════
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  const screen = document.getElementById(id);
-  screen.classList.add('active');
+  document.getElementById(id).classList.add('active');
   window.scrollTo(0, 0);
 }
 
-function goToIntake() {
-  showScreen('screen-intake');
-}
-
-const TOTAL_STEPS = 11;
-
-function updateProgress(step) {
-  const pct = Math.round((step / TOTAL_STEPS) * 100);
-  document.getElementById('progress-fill').style.width = pct + '%';
-}
-
-function nextStep(current) {
-  // validate
-  if (current === 1) {
-    const name = document.getElementById('field-name').value.trim();
-    if (!name) { showError('step-1', 'Please enter your name to continue.'); return; }
-    state.name = name;
-  }
-  if (current === 2) {
-    const dob = document.getElementById('field-dob').value;
-    const city = document.getElementById('field-city').value.trim();
-    const country = document.getElementById('field-country').value;
-    if (!dob || !city || !country) { showError('step-2', 'Please fill in your date of birth, city and country.'); return; }
-    state.dob = dob;
+function nextStep(curr) {
+  if (curr === 1) state.name = document.getElementById('field-name').value;
+  if (curr === 2) {
+    state.dob = document.getElementById('field-dob').value;
     state.time = document.getElementById('field-time').value || '12:00';
-    const stateRegion = document.getElementById('field-state').value.trim();
-    state.place = stateRegion ? city + ', ' + stateRegion + ', ' + country : city + ', ' + country;
+    state.place = document.getElementById('field-city').value + ', ' + document.getElementById('field-country').value;
   }
-  clearError(current);
-  document.getElementById('step-' + current).classList.remove('active');
-  const next = current + 1;
-  document.getElementById('step-' + next).classList.add('active');
-  updateProgress(next);
-  window.scrollTo(0, 0);
-}
-
-function prevStep(current) {
-  document.getElementById('step-' + current).classList.remove('active');
-  document.getElementById('step-' + (current - 1)).classList.add('active');
-  updateProgress(current - 1);
-  window.scrollTo(0, 0);
+  document.getElementById('step-' + curr).classList.remove('active');
+  document.getElementById('step-' + (curr + 1)).classList.add('active');
+  document.getElementById('progress-fill').style.width = ((curr + 1) * 20) + '%';
 }
 
 function selectChoice(step, btn) {
-  document.querySelectorAll('#choices-' + step + ' .choice-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('#step-' + step + ' .choice-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
-  // steps 3-8 map to q1-q6, steps 9-11 map to q7-q9
-  const qNum = step <= 8 ? step - 2 : step - 2;
-  state.answers['q' + qNum] = btn.textContent.replace('✦  ', '');
-  const nextBtn = document.getElementById('next-' + step);
-  if (nextBtn) nextBtn.disabled = false;
+  state.answers['q' + step] = btn.textContent;
+  document.getElementById('next-' + step).disabled = false;
 }
 
-function showError(stepId, msg) {
-  clearError(parseInt(stepId.replace('step-','')));
-  const div = document.createElement('p');
-  div.className = 'error-msg';
-  div.id = 'error-' + stepId;
-  div.textContent = msg;
-  document.getElementById(stepId).appendChild(div);
-}
-
-function clearError(step) {
-  const err = document.getElementById('error-step-' + step);
-  if (err) err.remove();
-}
-
-// ══════════════════════════════════════════
-// GENERATE
-// ══════════════════════════════════════════
 async function generateFingerprint() {
-  state.openAnswer = '';
   showScreen('screen-loading');
-  document.getElementById('loading-name').textContent = state.name + ', your fingerprint is being decoded…';
-
-  const statuses = [
-    'Calculating your Human Design…',
-    'Reading your astrology chart…',
-    'Decoding your Gene Keys…',
-    'Mapping your nervous system type…',
-    'Weaving your regulation fingerprint…',
-    'Decoding your love design…',
-    'Writing your alignment prescription…',
-    'Almost ready…'
-  ];
-  let si = 0;
-  const statusEl = document.getElementById('loading-status');
-  const statusInterval = setInterval(() => {
-    if (si < statuses.length) { statusEl.textContent = statuses[si++]; }
-  }, 2200);
-
+  document.getElementById('loading-name').textContent = state.name + ', your blueprint is being decoded...';
+  
   try {
-    const prompt = buildPrompt();
-    const response = await callClaude(prompt);
-    clearInterval(statusInterval);
-    state.chapters = parseChapters(response);
+    const response = await fetch('/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(state)
+    });
+    
+    const data = await response.json();
+    const text = data.content[0].text;
+    
+    // Parse the chapters
+    state.chapters = [];
+    for (let i = 1; i <= 9; i++) {
+      const title = text.match(new RegExp(`\\[CHAPTER_${i}_TITLE\\](.*?)\\[/CHAPTER_${i}_TITLE\\]`, 's'));
+      const content = text.match(new RegExp(`\\[CHAPTER_${i}_CONTENT\\](.*?)\\[/CHAPTER_${i}_CONTENT\\]`, 's'));
+      if (title && content) state.chapters.push({ title: title[1].trim(), content: content[1].trim() });
+    }
+    
     buildResults();
     showScreen('screen-results');
   } catch (err) {
-    clearInterval(statusInterval);
-    console.error(err);
-    statusEl.textContent = 'Something went wrong — please refresh and try again.';
+    document.getElementById('loading-status').textContent = 'Link error. Please check your API keys in Vercel.';
   }
 }
 
-function buildPrompt() {
-  const dobFormatted = state.dob ? new Date(state.dob).toLocaleDateString('en-AU', {day:'numeric', month:'long', year:'numeric'}) : 'unknown';
-  return `You are the voice of Ground Me — warm, intimate, direct, deeply spiritual but never fluffy. You speak like someone who truly sees the person in front of them. You do NOT use hollow wellness language or generic affirmations. You are Karina — embodied, grounded, real.
-
-You are generating a Nervous System Fingerprint for ${state.name}.
-
-Their birth details:
-- Date of birth: ${dobFormatted}
-- Time of birth: ${state.time}
-- Place of birth: ${state.place}
-
-Their intake answers:
-- Energy most days: ${state.answers.q1 || 'not provided'}
-- When overwhelmed: ${state.answers.q2 || 'not provided'}
-- Stress in body: ${state.answers.q3 || 'not provided'}
-- People and energy: ${state.answers.q4 || 'not provided'}
-- Best decisions come from: ${state.answers.q5 || 'not provided'}
-- Current season of life: ${state.answers.q6 || 'not provided'}
-- How they feel about themselves right now: ${state.answers.q7 || 'not provided'}
-- Where they are with self-love: ${state.answers.q8 || 'not provided'}
-- What brought them here today: ${state.answers.q9 || 'not provided'}
-
-Generate their complete Nervous System Fingerprint — 9 chapters. Each chapter should:
-- Feel like it was written specifically for ${state.name} and no one else
-- Reference their birth details naturally (Human Design type based on their date/time/place, astrology placements, numerology life path number)
-- Be warm, intimate, direct — like a trusted guide who truly sees them
-- Be specific and ACTIONABLE — give them something they can do this week, not just insight
-- Be 250-350 words per chapter
-- Never use generic wellness phrases like "honour yourself", "show up", "lean in", "hold space for yourself"
-- Use their intake answers to personalise the content deeply
-
-Format your response EXACTLY like this — use these exact markers:
-
-[CHAPTER_1_TITLE]Your Energetic Blueprint[/CHAPTER_1_TITLE]
-[CHAPTER_1_CONTENT]...content...[/CHAPTER_1_CONTENT]
-
-[CHAPTER_2_TITLE]Your Nervous System Type[/CHAPTER_2_TITLE]
-[CHAPTER_2_CONTENT]...content...[/CHAPTER_2_CONTENT]
-
-[CHAPTER_3_TITLE]Your Regulation Fingerprint[/CHAPTER_3_TITLE]
-[CHAPTER_3_CONTENT]...content...[/CHAPTER_3_CONTENT]
-
-[CHAPTER_4_TITLE]Your Body & Nourishment Code[/CHAPTER_4_TITLE]
-[CHAPTER_4_CONTENT]...content...[/CHAPTER_4_CONTENT]
-
-[CHAPTER_5_TITLE]Your Rhythm & Flow[/CHAPTER_5_TITLE]
-[CHAPTER_5_CONTENT]...content...[/CHAPTER_5_CONTENT]
-
-[CHAPTER_6_TITLE]Your Lifestyle Design[/CHAPTER_6_TITLE]
-[CHAPTER_6_CONTENT]...content...[/CHAPTER_6_CONTENT]
-
-[CHAPTER_7_TITLE]Your Shadows & Superpowers[/CHAPTER_7_TITLE]
-[CHAPTER_7_CONTENT]...content...[/CHAPTER_7_CONTENT]
-
-[CHAPTER_8_TITLE]Your Love Design[/CHAPTER_8_TITLE]
-[CHAPTER_8_CONTENT]...content...[/CHAPTER_8_CONTENT]
-
-[CHAPTER_9_TITLE]Your Alignment Prescription[/CHAPTER_9_TITLE]
-[CHAPTER_9_CONTENT]...content...[/CHAPTER_9_CONTENT]
-
-Write chapter 9 as a complete, actionable weekly ritual plan — morning practice, evening practice, one weekly anchor, one thing to stop doing immediately. Make it feel like the most personalised prescription she's ever received.`;
-}
-
-async function callClaude(prompt) {
-  const response = await fetch('/api/generate', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ prompt })
-  });
-  if (!response.ok) throw new Error('API error: ' + response.status);
-  const data = await response.json();
-  return data.content[0].text;
-},
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 8000,
-      messages: [{ role: 'user', content: prompt }]
-    })
-  });
-  if (!response.ok) throw new Error('API error: ' + response.status);
-  const data = await response.json();
-  return data.content[0].text;
-}
-
-function parseChapters(text) {
-  const chapters = [];
-  for (let i = 1; i <= 9; i++) {
-    const titleMatch = text.match(new RegExp(`\\[CHAPTER_${i}_TITLE\\](.*?)\\[/CHAPTER_${i}_TITLE\\]`, 's'));
-    const contentMatch = text.match(new RegExp(`\\[CHAPTER_${i}_CONTENT\\](.*?)\\[/CHAPTER_${i}_CONTENT\\]`, 's'));
-    if (titleMatch && contentMatch) {
-      chapters.push({ title: titleMatch[1].trim(), content: contentMatch[1].trim() });
-    }
-  }
-  // fallback if parsing fails
-  if (chapters.length === 0) {
-    chapters.push({ title: 'Your Fingerprint', content: text });
-  }
-  return chapters;
-}
-
-// ══════════════════════════════════════════
-// BUILD RESULTS
-// ══════════════════════════════════════════
 function buildResults() {
   const container = document.getElementById('results-body');
   container.innerHTML = '';
-  document.getElementById('results-name').textContent = state.name + ', your fingerprint is ready.';
-
-  // Intro card
-  const intro = document.createElement('div');
-  intro.style.cssText = 'background:var(--cream);border:0.5px solid var(--light);padding:1.5rem;margin-bottom:12px;text-align:center;';
-  intro.innerHTML = `<p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;font-weight:300;color:var(--moss);line-height:1.7;margin-bottom:0.5rem;">"Your nervous system has a fingerprint. And you're about to read it — for the first time."</p><p style="font-size:12px;font-weight:300;color:var(--mid);">Nine chapters await. Begin with the first — and take your time.</p>`;
-  container.appendChild(intro);
-
   state.chapters.forEach((ch, i) => {
-    const idx = i + 1;
-    const isLove = idx === 8;
-    const isFirst = idx === 1;
-
-    // chapter card
     const card = document.createElement('div');
-    card.className = 'chapter-card' + (isFirst ? '' : ' locked');
-    card.id = 'chapter-' + idx;
-
-    card.innerHTML = `
-      <div class="chapter-header" onclick="toggleChapter(${idx})">
-        <div class="chapter-num ${isLove ? 'chapter-num-love' : ''}">0${idx}</div>
-        <div class="chapter-title-wrap">
-          <p class="chapter-eyebrow ${isLove ? 'chapter-eyebrow-love' : ''}">${isLove ? '✦ New chapter' : 'Chapter ' + idx + ' of 9'}</p>
-          <p class="chapter-name ${isLove ? 'chapter-name-love' : ''}">${ch.title}</p>
-        </div>
-        <div class="chapter-chevron">⌄</div>
-      </div>
-      <div class="chapter-content">
-        <p class="chapter-text">${ch.content}</p>
-      </div>`;
+    card.className = 'chapter-card';
+    card.innerHTML = `<div class="chapter-num">0${i+1}</div><div class="chapter-name">${ch.title}</div><div class="chapter-text">${ch.content}</div>`;
     container.appendChild(card);
-
-    // bridge (after every chapter except last)
-    if (idx < 9) {
-      const bridge = document.createElement('div');
-      bridge.className = 'chapter-bridge';
-      bridge.id = 'bridge-' + idx;
-      const bm = bridgeMessages[i] || bridgeMessages[0];
-      bridge.innerHTML = `
-        <p class="bridge-script">${bm.script}</p>
-        <p class="bridge-serif">${bm.serif}</p>
-        <button class="btn-reveal" onclick="revealNext(${idx})">Yes, I'm ready →</button>`;
-      container.appendChild(bridge);
-    }
   });
-
-  // completion card
-  const comp = document.createElement('div');
-  comp.className = 'completion-card';
-  comp.id = 'completion-card';
-  comp.innerHTML = `
-    <p class="completion-script">You've read it.</p>
-    <p class="completion-serif">All nine chapters. Your complete Nervous System Fingerprint. This is yours to keep — forever. Download it, return to it, share it with someone who needs to understand you better.</p>
-    <div class="completion-btns">
-      <button class="btn-download" onclick="downloadPDF()">⬇ Download your fingerprint PDF</button>
-    </div>
-    <p class="waitlist-note">Ground Me — the platform built around your blueprint — is coming soon.<br>Be first to know when it launches.</p>`;
-  container.appendChild(comp);
-
-  // Open first chapter
-  toggleChapter(1);
-  state.currentChapterUnlocked = 1;
 }
 
-function toggleChapter(idx) {
-  const card = document.getElementById('chapter-' + idx);
-  if (!card || card.classList.contains('locked')) return;
-  card.classList.toggle('open');
-  // show bridge after opening
-  if (card.classList.contains('open') && idx < 9) {
-    setTimeout(() => {
-      const bridge = document.getElementById('bridge-' + idx);
-      if (bridge) bridge.classList.add('visible');
-    }, 800);
-  }
-}
-
-function revealNext(currentIdx) {
-  const nextIdx = currentIdx + 1;
-  const nextCard = document.getElementById('chapter-' + nextIdx);
-  if (!nextCard) return;
-  // unlock
-  nextCard.classList.remove('locked');
-  // hide current bridge
-  const bridge = document.getElementById('bridge-' + currentIdx);
-  if (bridge) bridge.classList.remove('visible');
-  // scroll and open
-  nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  setTimeout(() => toggleChapter(nextIdx), 400);
-  state.currentChapterUnlocked = nextIdx;
-
-  // show completion after last
-  if (nextIdx === 9) {
-    setTimeout(() => {
-      const comp = document.getElementById('completion-card');
-      if (comp) comp.classList.add('visible');
-    }, 1200);
-  }
-}
-
-// ══════════════════════════════════════════
-// PDF DOWNLOAD
-// ══════════════════════════════════════════
-function downloadPDF() {
-  if (!state.chapters.length) return;
-  let content = `THE NERVOUS SYSTEM FINGERPRINT\nGround Me\n\nPrepared for: ${state.name}\nBirth: ${state.dob} · ${state.time} · ${state.place}\n\n${'─'.repeat(60)}\n\n`;
-  state.chapters.forEach((ch, i) => {
-    content += `CHAPTER ${i+1}: ${ch.title.toUpperCase()}\n\n${ch.content}\n\n${'─'.repeat(60)}\n\n`;
-  });
-  content += `\n© 2026 Ground Me · Created by Karina Jolly · All rights reserved\ngroundme.com`;
-
-  const blob = new Blob([content], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `${state.name.replace(/\s+/g,'-')}-Nervous-System-Fingerprint-Ground-Me.txt`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-</script>
-
-<script>
-// Belt-and-suspenders click handler for start button
-document.addEventListener('DOMContentLoaded', function() {
-  var btn = document.getElementById('start-btn');
-  if (btn) {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      goToIntake();
-    });
-  }
-});
+document.getElementById('start-btn').addEventListener('click', () => showScreen('screen-intake'));
 </script>
 </body>
 </html>
