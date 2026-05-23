@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     }
     const bgData = await bgRes.json();
 
-    // 2. Talk to Claude
+    // 2. Talk to Claude (Using Haiku for immediate access)
     const antRes = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: "claude-3-5-sonnet-20240620",
+        model: "claude-3-haiku-20240307", // Changed to the widely available model
         max_tokens: 4000,
         messages: [{
           role: "user",
@@ -45,7 +45,6 @@ export default async function handler(req, res) {
     const result = await antRes.json();
 
     if (!antRes.ok) {
-      // THIS IS THE KEY: We are sending the actual Claude error back to the browser
       throw new Error("Claude says: " + (result.error ? result.error.message : JSON.stringify(result)));
     }
 
