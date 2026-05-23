@@ -1,60 +1,68 @@
-// api/generate.js
 export default async function handler(req, res) {
+  // 1. Check if the request is valid
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
   const { name, dob, time, place, answers } = req.body;
 
+  // 2. Check for API Keys
+  if (!process.env.ANTHROPIC_API_KEY || !process.env.BODYGRAPH_API_KEY) {
+    console.error("MISSING KEYS: Ensure ANTHROPIC_API_KEY and BODYGRAPH_API_KEY are in Vercel Settings.");
+    return res.status(500).json({ error: 'API keys are not configured in Vercel.' });
+  }
+
   try {
-    // 1. CALL BODYGRAPH API
-    const bodygraphResponse = await fetch('https://api.bodygraph.com/v1/calculate', {
+    // 3. Talk to Bodygraph (Get Human Design Data)
+    console.log("Calling Bodygraph for:", place);
+    const bgRes = await fetch('https://api.bodygraphchart.com/v1/charts', {
       method: 'POST',
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.BODYGRAPH_API_KEY}`
-      },
-      body: JSON.stringify({
-        date: dob,
-        time: time,
-        location: place
-      })
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${process.env.BODYGRAPH_API_KEY}` },
+      body: JSON.stringify({ date: dob, time: time, location: place })
     });
-    
-    const hdData = await bodygraphResponse.json();
 
-    // 2. CONSTRUCT THE PROMPT
-    const prompt = `
-      You are Karina Jolly, generating a Nervous System Fingerprint for ${name}.
-      
-      BODYGRAPH DATA:
-      - Human Design Type: ${hdData.type}
-      - Profile: ${hdData.profile}
-      - Authority: ${hdData.inner_authority}
-      - Defined Centers: ${hdData.defined_centers?.join(', ')}
+    if (!bgRes.ok) {
+      const bgErr = await bgRes.text();
+      console.error("Bodygraph Error:", bgErr);
+      throw new Error("Bodygraph calculation failed. Check your Bodygraph API key.");
+    }
 
-      USER'S CURRENT STATE (from survey):
-      ${JSON.stringify(answers)}
+    const bgData = await bgRes.json();
 
-      Write 9 chapters in your signature warm, direct voice. 
-      Use markers [CHAPTER_X_TITLE] and [CHAPTER_X_CONTENT].
-    `;
-
-    // 3. CALL CLAUDE
-    const aiResponse = await fetch('https://api.anthropic.com/v1/messages', {
+    // 4. Talk to Claude (Generate the Blueprint)
+    console.log("Calling Anthropic...");
+    const antRes = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'content-type': 'application/json',
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-3-5-sonnet-20240620',
+        model: "claude-3-5-sonnet-20240620",
         max_tokens: 4000,
-        messages: [{ role: 'user', content: prompt }]
+        messages: [{
+          role: "user",
+          content: `You are Karina (Velvet & Steel). Generate a 9-chapter 'Nervous System Fingerprint' for ${name}. 
+          Human Design Data: ${JSON.stringify(bgData)}. 
+          User Answers: ${JSON.stringify(answers)}.
+          Use format: [CHAPTER_1_TITLE]...[/CHAPTER_1_TITLE] [CHAPTER_1_CONTENT]...[/CHAPTER_1_CONTENT] for all 9 chapters.
+          Tone: Deeply insightful, short sentences, no fluff.`
+        }]
       })
     });
 
-    const finalData = await aiResponse.json();
-    res.status(200).json(finalData);
+    if (!antRes.ok) {
+      const antErr = await antRes.text();
+      console.error("Anthropic Error:", antErr);
+      throw new Error("Claude connection failed. Check your Anthropic API key and billing/credits.");
+    }
+
+    const finalData = await antRes.json();
+    return res.status(200).json(finalData);
 
   } catch (error) {
-    res.status(500).json({ error: "Connection to Bodygraph failed." });
+    console.error("CRASH ERROR:", error.message);
+    return res.status(500).json({ error: error.message });
   }
 }
