@@ -42,13 +42,7 @@ html,body{min-height:100vh;background:var(--mist);font-family:'Jost',sans-serif;
     <p class="w-logo">ground <em>me</em></p>
     <h1 class="w-headline">This is your <span class="w-script">Fingerprint.</span></h1>
     <p class="w-subhead">The map that makes sense of the parts of you that have always felt unnamable.</p>
-    
-    <div class="w-prep">
-      Grab a cuppa. Take a seat.<br>
-      Give yourself three minutes of quiet.<br>
-      We are going deep.
-    </div>
-
+    <div class="w-prep">Grab a cuppa. Take a seat.<br>Give yourself three minutes of quiet.<br>We are going deep.</div>
     <button class="btn-gold" onclick="showScreen('screen-intake')">Let's begin →</button>
   </div>
 </div>
@@ -79,6 +73,7 @@ html,body{min-height:100vh;background:var(--mist);font-family:'Jost',sans-serif;
         <button class="choice-btn" onclick="sel(3, this)">I start strong but the fire fades fast</button>
         <button class="choice-btn" onclick="sel(3, this)">I have inconsistent, unpredictable bursts</button>
         <button class="choice-btn" onclick="sel(3, this)">I'm a slow burn — low and steady</button>
+        <button class="choice-btn" onclick="sel(3, this)">I feel like a mirror for everyone else's energy</button>
       </div>
       <button class="btn-gold" id="btn-3" onclick="nextStep(3)" disabled>Continue</button>
     </div>
@@ -86,9 +81,10 @@ html,body{min-height:100vh;background:var(--mist);font-family:'Jost',sans-serif;
     <div id="step-4" class="step" style="display:none;">
       <h2 class="step-q">When the world gets too loud, you tend to...</h2>
       <div class="choices">
-        <button class="choice-btn" onclick="sel(4, this)">Withdraw into a heavy silence</button>
-        <button class="choice-btn" onclick="sel(4, this)">Push harder until I break something</button>
-        <button class="choice-btn" onclick="sel(4, this)">Get stuck in an overthinking loop</button>
+        <button class="choice-btn" onclick="sel(4, this)">Withdraw into a heavy, frozen silence</button>
+        <button class="choice-btn" onclick="sel(4, this)">Push harder until I break something or burnout</button>
+        <button class="choice-btn" onclick="sel(4, this)">Get stuck in an endless overthinking loop</button>
+        <button class="choice-btn" onclick="sel(4, this)">Scatter my attention in a million directions</button>
       </div>
       <button class="btn-gold" id="btn-4" onclick="nextStep(4)" disabled>Continue</button>
     </div>
@@ -96,9 +92,10 @@ html,body{min-height:100vh;background:var(--mist);font-family:'Jost',sans-serif;
     <div id="step-5" class="step" style="display:none;">
       <h2 class="step-q">What is the deepest 'why' for you right now?</h2>
       <div class="choices">
-        <button class="choice-btn" onclick="sel(5, this)">I am exhausted from being 'on'</button>
-        <button class="choice-btn" onclick="sel(5, this)">I feel like I'm not being seen for who I am</button>
+        <button class="choice-btn" onclick="sel(5, this)">I am exhausted from being 'on' all the time</button>
+        <button class="choice-btn" onclick="sel(5, this)">I feel like I'm not being seen for who I actually am</button>
         <button class="choice-btn" onclick="sel(5, this)">I'm ready to live with more power and less friction</button>
+        <button class="choice-btn" onclick="sel(5, this)">I just want to understand why I feel so different</button>
       </div>
       <button class="btn-gold" id="btn-5" onclick="generate()" disabled>Generate My Fingerprint →</button>
     </div>
@@ -151,6 +148,12 @@ async function generate() {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(state)
     });
+    
+    if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.error || "API Error");
+    }
+
     const data = await res.json();
     const text = data.content[0].text;
     
@@ -170,7 +173,7 @@ async function generate() {
     showScreen('screen-results');
   } catch(e) {
     console.error(e);
-    alert("Connection error. Ensure your API keys are in Vercel.");
+    alert("Connection error: " + e.message + ". Check your Vercel logs and API keys.");
     showScreen('screen-intake');
   }
 }
